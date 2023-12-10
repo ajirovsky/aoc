@@ -8,6 +8,7 @@ def pretty_print(func):
         print(f"The answer for {self.__class__.__name__} (\"{input}\" file) is: {val}")
         return val
     return wrapper
+
 class Solver:
 
     @abstractmethod
