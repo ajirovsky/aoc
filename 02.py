@@ -1,5 +1,4 @@
 from common.solver import Solver, pretty_print
-from typing import List
 import numpy as np
 
 class DayTwo(Solver):
