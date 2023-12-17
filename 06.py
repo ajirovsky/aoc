@@ -32,8 +32,6 @@ class DayFive(Solver):
         return self.__solve_race(times,distances)
         
 
-
-
 if __name__ == "__main__":
     DayFive().solve_first("06_small")
     DayFive().solve_first("06")
@@ -41,4 +39,3 @@ if __name__ == "__main__":
 
     DayFive().solve_second("06_small")
     DayFive().solve_second("06")
-    
