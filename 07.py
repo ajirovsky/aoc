@@ -128,8 +128,8 @@ class DaySeven(Solver):
 
 
 if __name__ == "__main__":
-    # DaySeven().solve_first("07_small")
-    # DaySeven().solve_first("07")
+    DaySeven().solve_first("07_small")
+    DaySeven().solve_first("07")
     
 
     DaySeven().solve_second("07_small")

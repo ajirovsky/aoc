@@ -1,11 +1,21 @@
 from abc import abstractmethod
 from typing import List
 from common.input_loader import InputLoader
+import time
 
 def pretty_print(func):
     def wrapper(self, input : str) -> int:
         val = func(self, input)
         print(f"The answer for {self.__class__.__name__} (\"{input}\" file) is: {val}")
+        return val
+    return wrapper
+
+def timer(func):
+    def wrapper(self, input : str) -> int:
+        start = time.time()
+        val = func(self, input)
+        end = time.time()
+        print(f"Function took {end - start} seconds.")
         return val
     return wrapper
 
