@@ -1,5 +1,5 @@
 from common.solver import Solver, pretty_print, timer
-from typing import List
+from typing import List, Callable, Union, Dict
 
 
 
@@ -8,12 +8,13 @@ class DayEight(Solver):
         super().__init__()
         self.lookup_routes = {}
 
-    def __parse_input(self, input):
+    def __parse_input(self, input : List[str]):
         instructions = input[0]
-        path_dict = {path.split("=")[0][:-1] : [dst.replace(" ","").replace(")", "").replace("(", "") for dst in path.split("=")[1].split(",")] for path in input[2:]}
+        path_dict = {path.split("=")[0][:-1] : [dst.replace(" ","").replace(")", "").replace("(", "")
+                                                 for dst in path.split("=")[1].split(",")] for path in input[2:]}
         return instructions, path_dict
     
-    def __apply_path(self, loc, breaking_condition, instructions, path_dict):        
+    def __apply_path(self, loc : int, breaking_condition : Callable, instructions : List[str], path_dict : Dict) -> Union[int, int]:
         steps = 0
         for inst in instructions:
             routes = path_dict[loc]
@@ -24,7 +25,7 @@ class DayEight(Solver):
         
         return loc, steps
     
-    def __lcm_of_list(self, numbers):
+    def __lcm_of_list(self, numbers : List[int]) -> int:
         def gcd(a, b):
             while b:
                 a, b = b, a % b
